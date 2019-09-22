@@ -4,6 +4,7 @@ class Ball {
     constructor() {
       this.position = { x: 100, y: 100 };
       this.velocity = { x: 10, y: 0 };
+      this.size = {w: 50, h: 50};
     }
     
     update() {
@@ -13,10 +14,17 @@ class Ball {
 
       //creates the circle at the point and size 
       circle(this.position.x, this.position.y, 20);
+
+      //creates the rectangles
+      rect(50,200,this.size.w,this.size.h);
+      rect(300,200,this.size.w,this.size.h);
       
       //if the ball goes past this postion or this position run the function that moves it back to the start
       if(this.position.x < 0 || this.position.x > 400) {
+        this.size.x = this.size.x + 5; 
+        this.size.y = this.size.y + 5;
         World.ballBeyond(this);
+        
       }
     }
     
@@ -29,6 +37,8 @@ class Ball {
       this.bgcolor = [ Math.random()*255, Math.random()*255, 83 ];
       whichBall.position.x = 100;
       whichBall.velocity.x = (Math.random() - .5) * 20;
+      
+      
     }
   }
   
