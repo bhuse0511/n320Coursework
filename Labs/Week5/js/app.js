@@ -1,6 +1,6 @@
 Vue.component("student-card", {
-    props: [ "student" ],
-    template: "<div class='student' v-bind:class='{ cardActive:isactive }'>{{ student.name }} : {{ student.skill }}</div>"
+    props: [ "student", "isactive" ],
+    template: "<div class='student' v-bind:class='{ cardActive:isactive, cardOut:!isactive, cardBig:!isactive }'>{{ student.name }} : {{ student.skill }}</div>"
 })
 
 var app = new Vue({
@@ -17,14 +17,88 @@ var app = new Vue({
     },
     methods: {
         arrowClicked: function() {
-            this.curStudentId ++;
-            this.currentStudent = this.students[this.curStudentId];
+            
+            this.cardActive = !this.cardActive;
 
-            if(this.curStudentId >= this.students.length-1) {
-                this.curStudentId = -1;
-            }
+            setTimeout( () => {
+                //modify the skill of the current student
+                //before moving onward:
+                this.currentStudent.skill ++;
 
-            this.cardActive = !this.cardAcive;
+                //iteration code
+                this.curStudentId ++;
+                this.currentStudent = this.students[this.curStudentId];
+
+                if(this.curStudentId >= this.students.length-1) {
+                    this.curStudentId = -1;
+                }
+
+                //animation trigger
+                this.cardActive = !this.cardActive; 
+                
+            }, 300);
+        },
+
+        secondArrowClicked: function() {
+            
+            this.cardActive = !this.cardActive;
+
+            setTimeout( () => {
+                //modify the skill of the current student
+                //before moving onward:
+                this.currentStudent.skill ++;
+
+                //iteration code
+                this.curStudentId --;
+                this.currentStudent = this.students[this.curStudentId];
+
+                if(this.curStudentId <= this.students.length+1) {
+                    this.curStudentId = +1;
+                }
+
+                //animation trigger
+                this.cardActive = !this.cardActive; 
+                
+            }, 300);
+        },
+
+        thirdArrowClicked: function() {
+            
+            this.cardActive = !this.cardActive;
+            this.cardBig = isActive;
+
+            setTimeout( () => {
+                //modify the skill of the current student
+                //before moving onward:
+                this.currentStudent.skill ++;
+
+                //iteration code
+                this.curStudentId ++;
+                this.currentStudent = this.students[this.curStudentId];
+
+                if(this.curStudentId >= this.students.length-1) {
+                    this.curStudentId = -1;
+                }
+
+                //animation trigger
+                this.cardActive = !this.cardActive; 
+                
+            }, 300);
         }
+        
     }
 })
+
+
+/*
+setTimeout( () => {
+          this.currentStudent.skill ++;
+      
+          this.curStudentId ++;
+          if(this.curStudentId >= this.students.length) this.curStudentId = 0;
+          this.currentStudent = this.students[this.curStudentId];
+          this.cardActive = !this.cardActive;
+      },
+      300)
+      cardOut:!isactive
+      */

@@ -8,6 +8,7 @@
     <style>
         body {
             background: #000;
+            
         }
         .student {
             border-radius: 4px;
@@ -26,20 +27,42 @@
             margin: 5px;
             border-radius: 5px;
             background: #7ecfc0;
+            
         }
-
-        .cardActive{
+        .cardActive {
             transition: transform .3s ease, opacity .3s ease;
-            transform: rotate(80deg);
+            transform: rotate(0deg);
+            opacity: 1;
+        }
+        .cardOut {
+            transition: transform  .3s ease, opacity .3s ease;
+            transform: rotate(45deg);
             opacity: 0;
         }
+        .arrow:hover {
+            transition: transform .3s ease;
+            transform: scale(1.25);
+        }
+        #container {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        
+        
     </style>
 </head>
 <body>
     
     <div id="app">
         <student-card v-bind:student="currentStudent" v-bind:isactive="cardActive"></student-card>
-        <div class="arrow" v-on:click="arrowClicked"> > </div>
+        <div id="container">
+            <div class="arrow" v-on:click="secondArrowClicked"> < </div>
+            <div class="arrow" id="up" v-on:click="thirdArrowClicked"> ^ </div>
+            <div class="arrow" v-on:click="arrowClicked"> > </div>
+        </div>
+        
+        
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
