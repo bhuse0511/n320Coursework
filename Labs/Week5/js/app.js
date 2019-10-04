@@ -52,8 +52,8 @@ var app = new Vue({
                 this.curStudentId --;
                 this.currentStudent = this.students[this.curStudentId];
 
-                if(this.curStudentId <= this.students.length+1) {
-                    this.curStudentId = +1;
+                if(this.curStudentId >= this.students.length-1) {
+                    this.curStudentId = -1;
                 }
 
                 //animation trigger
@@ -61,13 +61,14 @@ var app = new Vue({
                 
             }, 300);
         },
-
+        
         thirdArrowClicked: function() {
             
             this.cardActive = !this.cardActive;
-            this.cardBig = isActive;
+            
 
             setTimeout( () => {
+                
                 //modify the skill of the current student
                 //before moving onward:
                 this.currentStudent.skill ++;
@@ -81,13 +82,18 @@ var app = new Vue({
                 }
 
                 //animation trigger
+                
                 this.cardActive = !this.cardActive; 
                 
             }, 300);
-        }
+        } 
         
     }
 })
+
+function myFunction(){
+    document.getElementById("card").style.transform = "scale(1.5)";
+}
 
 
 /*
