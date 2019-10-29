@@ -1,0 +1,63 @@
+{
+    "meta": {
+        "type": "IUPUI Club Rowing"
+    },
+    "boat": [
+        {
+            "name": "Quentin",
+            "seat number": 8,
+            "side": "Port",
+            "6k Split": "1:52.2",
+            "weight": 165
+        },
+        {
+            "name": "Jason",
+            "seat number": 7,
+            "side": "Starboard",
+            "6k Split": "1:53.8",
+            "weight": 165
+        },
+        {
+            "name": "Kyle",
+            "seat number": 6,
+            "side": "Port",
+            "6k Split": "1:56.2",
+            "weight": 191
+        },
+        {
+            "name": "Ben",
+            "seat number": 5,
+            "side": "Starboard",
+            "6k Split": "1:54.5",
+            "weight": 176
+        },
+        {
+            "name": "Cody",
+            "seat number": 4,
+            "side": "Port",
+            "6k Split": "1:51.3",
+            "weight": 178
+        },
+        {
+            "name": "Tucker",
+            "seat number": 3,
+            "side": "Starboard",
+            "6k Split": "2:01.3",
+            "weight": 180
+        },
+        {
+            "name": "Matthew",
+            "seat number": 2,
+            "side": "Port",
+            "6k Split": "1:59.3",
+            "weight": 183
+        },
+        {
+            "name": "Andrew",
+            "seat number": 1,
+            "side": "Starboard",
+            "6k Split": "1:48.9",
+            "weight": 160
+        }
+    ]
+}
