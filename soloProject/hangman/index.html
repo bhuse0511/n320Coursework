@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #hangmanPic{
+            width: 500px;
+            height: 390px;
+            z-index: 1;
+		    position: absolute;
+        }
+        canvas {
+            width: 500px;
+            height:500px;
+            z-index: 2;
+            border:1px solid;
+            position:absolute;
+            left: 0;
+            top: 0;
+	}
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <img id="hangmanPic" :src="hangmanPic" />
+        <h2>{{ gameBoard }}</h2>
+    
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/>
+    <div>
+        <h2 id="answerDisplay"></h2>
+        <h4>Incorrect Letters: </h4></h4><h4 id="letterBank"></h4>
+    </div>
+    <input type="text" id="answerInput"  value="" />
+    <br/>
+    <button onclick="submitAnswer('answerInput', 'answerDisplay')" id="answerButton" >Submit Answer</button>
+    <br/>
+    <br/>
+    <input type="text" id="guessInput"  value="" maxlength="1"/> 
+    <br/>
+    <button onclick="submit('guessInput')" id="guessButton" >Submit Guess</button>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
