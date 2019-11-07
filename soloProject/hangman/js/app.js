@@ -44,7 +44,7 @@ var app = new Vue({
     // draw functions for rectangles, they are used to 
     // cover up the different body parts of the hangman guy
     function draw(){
-        
+        clear();
         // Use color() function 
         let c = color('white'); 
         // Use fill() function to fill color 
