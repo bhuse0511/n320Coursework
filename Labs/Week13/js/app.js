@@ -49,6 +49,7 @@ function createScene(){
         ball, BABYLON.PhysicsImpostor.SphereImpostor,
         { mass: 1, restitution: .2 }.scene
     );
+    ball.tag = "ball";
 
     //setup ground for ball to exist on 
     var ground = BABYLON.meshBuilder.createGround("ground", { height: 20, width: 20, subdevisions: 4 }, scene);
@@ -99,18 +100,19 @@ window.addEventListener("click", function(){
 
     //null check
     if(selectedObject) {
+        if(selectedObject.tag == "ball"){
+            //get a directon away from where the suse clicke on the ball
+            var surfaceNormal = pickResult.getNormal(true);
+            var forceDirection = surfaceNormal.scale(-1000);
 
-        //get a directon away from where the suse clicke on the ball
-        var surfaceNormal = pickResult.getNormal(true);
-        var forceDirection = surfaceNormal.scale(-1000);
+            //kick the object
+            selectedObject.physicsImpostor.applyForce(
+                forceDirection,
+                selectedObject.getAbsolutePosition()
+            )
 
-        //kick the object
-        selectedObject.physicsImpostor.applyForce(
-            forceDirection,
-            selectedObject.getAbsolutePosition()
-        )
-
-        //reset ball after 3 secdons
-        timeoutId = setTimeOut(resetBall, 3000);
+            //reset ball after 3 secdons
+            timeoutId = setTimeOut(resetBall, 3000);
+        }
     }
 })
