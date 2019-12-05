@@ -1,0 +1,28 @@
+{
+    "meta": {
+        "type": "top three"
+    },
+    "candy": [
+        {
+            "name": "Kit Kat",
+            "rating": "good",
+            "chocolate": true,
+            "deliciousness": 240,
+            "types": [
+                "wasabi", "white", "cherry blossom", "dark chocolate", "milk chocolate"
+            ]
+        },
+        {
+            "name": "Twix",
+            "rating": "great", 
+            "chocolate": true, 
+            "deliciousness": 300
+        },
+        {
+            "name": "Sour Patch Kids", 
+            "rating": "great", 
+            "chocolate": false, 
+            "deliciousness": 350
+        }
+    ]
+}

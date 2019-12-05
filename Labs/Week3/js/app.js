@@ -21,8 +21,6 @@ class Ball {
       
       //if the ball goes past this postion or this position run the function that moves it back to the start
       if(this.position.x < 0 || this.position.x > 400) {
-        this.size.x = this.size.x + 5; 
-        this.size.y = this.size.y + 5;
         World.ballBeyond(this);
         
       }
@@ -33,8 +31,12 @@ class Ball {
   // singleton pattern
   var World = {
     bgcolor: [237, 119, 83],
+    w = 50,
+    h = 50,
+    boxSize: [this.w, this.h],
     ballBeyond: function(whichBall) {
       this.bgcolor = [ Math.random()*255, Math.random()*255, 83 ];
+      this.boxSize = [this.w + 5, this.h + 5];
       whichBall.position.x = 100;
       whichBall.velocity.x = (Math.random() - .5) * 20;
       
@@ -43,6 +45,19 @@ class Ball {
   }
   
   //class for a box
+  class Box{
+    constructor() {
+
+      world.boxSize = {w: 50, h: 50};
+    }
+    update(){
+     //creates the rectangles
+     rect(50,200,world.boxSize.w, world.boxSize.h);
+     rect(300,200,world.boxSize.w, world.boxSize.h);
+    }
+     
+
+  }
   //Grows in size every time a ball hits an edge and is reset
   // "For fun": multiple balls
   

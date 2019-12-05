@@ -48,17 +48,19 @@
             flex-flow: row wrap;
         }
 
-        
+
         
     </style>
 </head>
 <body>
     
     <div id="app">
-        <student-card v-bind:student="currentStudent" v-bind:isactive="cardActive"></student-card>
+        <div id = "card">
+            <student-card v-bind:student="currentStudent" v-bind:isactive="cardActive"></student-card>
+        </div>
         <div id="container">
             <div class="arrow" v-on:click="secondArrowClicked"> < </div>
-            <div class="arrow" id="up" v-on:click="thirdArrowClicked"> ^ </div>
+            <div class="arrow" id="up" v-on:click="thirdArrowClicked" > ^ </div>
             <div class="arrow" v-on:click="arrowClicked"> > </div>
         </div>
         
