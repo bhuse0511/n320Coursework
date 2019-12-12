@@ -1,0 +1,122 @@
+#checkers {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.gameBoard {
+  border: 10px solid #000000;
+  background-color: #999999;
+}
+.row {
+  /* border: 1px solid blue; */
+  display: flex;
+}
+.cell {
+  /* border: 1px solid green; */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.piece {
+  border: 2px dotted;
+  box-shadow: 0px 3px 4px;
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+}
+#scoreboard{
+  border-bottom: 10px solid #000000;
+  background-color: #999999;
+  padding: 8px;
+  display: flex;
+}
+#scoreboard h5{
+  margin-right: 10px;
+}
+#scoreboard button{
+  margin-top: 1.8em;
+  margin-left: 1em;
+  background-color: #dddddd;
+}
+#captured{
+  margin-left: 25px;
+}
+#player1Caputred{
+  margin-right: 12px;
+}
+#player2Caputred h5{
+  padding-left: 12px;
+
+}
+#player1Caputred h5{
+  padding-left: 13px;
+
+}
+#startScreen {
+  width: 400px;
+  height: 400px;
+  border: 10px solid #000000;
+  background-color: #D9995E;
+}
+#startScreen h3 {
+  color: #244423;
+  border: 2px #000000;
+  font-size: 2.5em;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.newGameButton{
+  display: flex;
+  justify-content: center;
+}
+.newGameButton h4 {
+  color: #244423;
+  border: 2px #000000;
+  font-size: 1.75em;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  align-content: center;
+}
+.newGameButton button{
+  height: 1.35em;
+  color: #244423;
+  border: 2px #000000;
+  font-size: 1.75em;
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+  margin-left: 10px;
+  align-content: center;
+  background-color: rgb(212, 176, 142);
+  border-radius: 5px;
+  box-shadow: 5px 5px 8px rgb(134, 112, 90)
+}
+.decoration{
+  display: flex;
+  justify-content: center;
+}
+.decoration *{
+  padding: 7.5px;
+  margin: 5px;
+}
+#winScreen{
+  width: 400px;
+  height: 400px;
+  border: 10px solid #000000;
+  background-color: #D9995E;
+}
+#winScreen h3 {
+  color: #244423;
+  border: 2px #000000;
+  font-size: 2.5em;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  align-content: center;
+}

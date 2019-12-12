@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Checkers - Sidwell</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    
+      
+    <!--
+
+      GAME SCREEN
+
+    -->
+    <!-- Main App Gamespace -->
+    <main id="checkers" >
+<!--
+
+      START SCREEN
+
+    -->
+    <div class="gameboard" id="startScreen" v-if="currentScreen == 'startScreen'">
+        <div>
+          <h3>CHECKERS</h3>
+          <div class="newGameButton">
+              <h4>New Game: </h4>
+              <button v-on:click="newGame()">Start</button>
+            </div>
+          <div class="decoration">
+              <div
+                class="piece"
+                v-bind:style="redPlayerStyle"
+              ></div>
+              <div
+                class="piece"
+                v-bind:style="whitePlayerStyle"
+              ></div>
+              <div
+                class="piece"
+                v-bind:style="redPlayerStyle"
+              ></div>
+              <div
+                class="piece"
+                v-bind:style="whitePlayerStyle"
+              ></div>
+          </div>
+        </div>
+    </div>
+      <!--
+  
+         ^-- START SCREEN --^
+  
+      -->
+      <div id="gameScreen" v-if="currentScreen == 'gameScreen'">
+
+
+      <!-- Game Over Stuff 
+      <div v-if="gameOver" class="gOver">
+        Game Over, Player {{ winner }} wins!
+      </div>-->
+      <!-- ^ End Game Over Stuff ^ -->
+
+
+      <!-- v Start Game Stuff v -->
+      
+      <!-- ^ End Start Game Stuff ^ -->
+      <!-- v Game Board v -->
+      <div class="gameBoard">
+          <div id="scoreboard">
+              <h5>Turn: </h5>
+              <div 
+                id="player1Turn"
+                class="piece"
+                v-if="playerTurn==1"
+                v-bind:style="redPlayerStyle"
+              ></div>
+              <div 
+                id="player2Turn"
+                class="piece"
+                v-else-if="playerTurn==2"
+                v-bind:style="whitePlayerStyle"
+              ></div>
+              <h5 id="captured">Captured Pieces: </h5>
+              <div
+                id="player1Caputred"
+                class="piece"
+                v-bind:style="redPlayerStyle"
+              ><h5>{{ score.red }}</h5></div>
+              <div
+                id="player2Caputred"
+                class="piece"
+                v-bind:style="whitePlayerStyle"
+              ><h5>{{  score.white }}</h5></div>
+              <div><button v-on:click="newGame()">Reset</button></div>
+            </div>
+        <!-- v Row Generation v -->
+        <div class="row" v-for="(row, indexR) in board" v-bind:key="row">
+          <!-- v Column Generation v -->
+          <div v-for="(item, indexC) in row" v-bind:key="item">
+            <!-- v Cell/tile Conditional Coloring v -->
+            <div
+              class="cell"
+              v-if="item>0"
+              v-bind:style="darkBoardStyle"
+              v-on:click="movePiece(indexR, indexC, item)"
+            >
+              <!-- v Gamepiece conditional coloring v -->
+              <div
+                class="piece"
+                v-if="item==1"
+                v-bind:style="redPlayerStyle"
+                v-on:click="selectPiece(indexR, indexC, item)"
+              ></div>
+              <div
+                class="piece"
+                v-else-if="item==2"
+                v-bind:style="whitePlayerStyle"
+                v-on:click="selectPiece(indexR, indexC, item)"
+              ></div>
+              <!-- ^ End Gamepiece conditional coloring ^ -->
+            </div>
+            <div v-else v-bind:style="lightBoardStyle"></div>
+            <!-- ^ End Cell/tile Conditional Coloring ^ -->
+          </div>
+          <!-- ^ End Column Generation ^ -->
+        </div>
+        <!-- ^ End Row Generation ^ -->
+      </div>
+      <!-- ^ End Game Board ^ -->
+    </div>
+    <!--
+
+       ^-- GAME SCREEN --^
+
+    -->
+    <!--
+
+      WIN SCREEN
+
+    -->
+    <div class="gameboard" id="winScreen" v-if="currentScreen == 'winScreen'">
+        <div>
+          <h3>Game Over</h3><h3>Player {{ winner }} wins!</h3>
+          <div class="newGameButton">
+              <h4>Play Again: </h4>
+              <button v-on:click="newGame()">Start</button>
+            </div>
+          <div class="decoration">
+              <div
+                class="piece"
+                v-bind:style="redPlayerStyle"
+              ></div>
+              <div
+                class="piece"
+                v-bind:style="whitePlayerStyle"
+              ></div>
+              <div
+                class="piece"
+                v-bind:style="redPlayerStyle"
+              ></div>
+              <div
+                class="piece"
+                v-bind:style="whitePlayerStyle"
+              ></div>
+          </div>
+        </div>
+    </div>
+      <!--
+  
+         ^-- WIN SCREEN --^
+  
+      -->
+
+    </main>
+    <!-- ^ End Main App Gamespace ^ -->
+   
+
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="js/checkers.js"></script>
+  </body>
+</html>
