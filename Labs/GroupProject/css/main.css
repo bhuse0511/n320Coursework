@@ -38,7 +38,7 @@
   margin-right: 10px;
 }
 #scoreboard button{
-  margin-top: 1.8em;
+  width: 55px;
   margin-left: 1em;
   background-color: #dddddd;
 }
@@ -112,6 +112,21 @@
   background-color: #D9995E;
 }
 #winScreen h3 {
+  color: #244423;
+  border: 2px #000000;
+  font-size: 2.5em;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  align-content: center;
+}
+#tieScreen{
+  width: 400px;
+  height: 400px;
+  border: 10px solid #000000;
+  background-color: #D9995E;
+}
+#tieScreen h3 {
   color: #244423;
   border: 2px #000000;
   font-size: 2.5em;

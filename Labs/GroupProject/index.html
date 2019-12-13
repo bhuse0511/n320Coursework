@@ -94,7 +94,17 @@
                 class="piece"
                 v-bind:style="whitePlayerStyle"
               ><h5>{{  score.white }}</h5></div>
-              <div><button v-on:click="newGame()">Reset</button></div>
+              <div>
+                <div>
+                  <button v-on:click="newGame()">Reset</button>
+                </div>
+                <div>
+                    <button v-on:click="forfeit()">Forfeit</button>
+                </div>
+                <div>
+                    <button v-on:click="tie()">Tie</button>
+                </div>
+              </div>
             </div>
         <!-- v Row Generation v -->
         <div class="row" v-for="(row, indexR) in board" v-bind:key="row">
@@ -171,6 +181,44 @@
       <!--
   
          ^-- WIN SCREEN --^
+  
+      -->
+
+      <!--
+
+      TIE SCREEN
+
+      -->
+      <div class="gameboard" id="tieScreen" v-if="currentScreen == 'tieScreen'">
+          <div>
+            <h3>Game Over</h3><h3>It's a tie!</h3>
+            <div class="newGameButton">
+                <h4>Play Again: </h4>
+                <button v-on:click="newGame()">Start</button>
+              </div>
+            <div class="decoration">
+                <div
+                  class="piece"
+                  v-bind:style="redPlayerStyle"
+                ></div>
+                <div
+                  class="piece"
+                  v-bind:style="whitePlayerStyle"
+                ></div>
+                <div
+                  class="piece"
+                  v-bind:style="redPlayerStyle"
+                ></div>
+                <div
+                  class="piece"
+                  v-bind:style="whitePlayerStyle"
+                ></div>
+            </div>
+          </div>
+      </div>
+      <!--
+  
+         ^-- TIE SCREEN --^
   
       -->
 

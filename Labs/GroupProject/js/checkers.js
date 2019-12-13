@@ -49,7 +49,7 @@ var checkers = new Vue({
     newGame: function() {
       // Set/Reset game data for a new game.
       this.gameOver = false;
-      this.winner = 0;
+      this.winner = "";
       this.playerTurn = 1;
       this.pieceSelected = false;
       this.selectedRow = null;
@@ -240,12 +240,26 @@ var checkers = new Vue({
       //Checks if the game has a winner.
       // Game over if a player loses all their pieces.
       if(this.score.red == 12){
+        this.winner = "Red";
         this.updateScreen("winScreen");
       } else if (this.score.white == 12){
+        this.winner = "White";
         this.updateScreen("winScreen");
       }
       // Game over if a player has no more moves.
 
+    },
+    forfeit: function(){
+      if(this.playerTurn == 1){
+        this.winner = "White";
+        this.updateScreen("winScreen");
+      } else if (this.playerTurn == 2){
+        this.winner = "Red";
+        this.updateScreen("winScreen");
+      }
+    },
+    tie: function(){
+      this.updateScreen("tieScreen");
     }
   }
 });
